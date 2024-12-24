@@ -4,13 +4,10 @@ import { useProductStore } from "../stores/useProcdutStore";
 import FeaturedProducts from "../components/FeaturedProducts";
 
 const categories = [
-    { href: "/jeans", name: "Jeans", imageUrl: "/jeans.jpg" },
-    { href: "/t-shirts", name: "T-shirts", imageUrl: "/tshirts.jpg" },
-    { href: "/shoes", name: "Shoes", imageUrl: "/shoes.jpg" },
-    { href: "/glasses", name: "Glasses", imageUrl: "/glasses.png" },
-    { href: "/jackets", name: "Jackets", imageUrl: "/jackets.jpg" },
-    { href: "/suits", name: "Suits", imageUrl: "/suits.jpg" },
-    { href: "/bags", name: "Bags", imageUrl: "/bags.jpg" },
+    { href: "/Machine-a-coudre", name: "Machine a coudre", imageUrl: "/machine.jpg" },
+    { href: "/Pièce-machine-a-coudre", name: "Pièce machine a coudre", imageUrl: "/pieces.jpg" },
+    { href: "/Pièces-Électroniques", name: "Pièces Électroniques", imageUrl: "/electronique.jpg" },
+
 ];
 const HomePage = () => {
     const { fetchFeaturedProducts, products, isLoading } = useProductStore();
@@ -27,7 +24,7 @@ const HomePage = () => {
                     Explore Our Categories
                 </h1>
                 <p className='text-center text-xl text-gray-300 mb-12'>
-                    Check the latest Thrift-Shop Discoveries
+                    Discover the Best in Sewing Machines and Accessories!
                 </p>
 
 

@@ -13,12 +13,13 @@ import analyticsRoutes from "./routes/analytics.route.js";
 import path from "path";
 //
 dotenv.config();
-const PORT = process.env.PORT || 5000;
 const app = express();
+const PORT = process.env.PORT || 5000;
 //
+const __dirname = path.resolve(); //Allows you to get the path of the root of our App
+
 app.use(express.json({ limit: "10mb" })); //Allows you to read the body of the request
 app.use(cookieParser()); //Allows you to read the cookies
-const __dirname = path.resolve(); //Allows you to get the path of the root of our App
 
 app.use("/api/auth", authRoutes); //Allows you to use the routes
 app.use("/api/products", productRoutes);

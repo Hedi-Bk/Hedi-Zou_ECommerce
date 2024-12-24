@@ -4,7 +4,7 @@ import { PlusCircle, Upload, Loader } from "lucide-react";
 import { useProductStore } from "../stores/useProcdutStore";
 //import { useProductStore } from "../stores/useProductStore";
 
-const categories = ["jeans", "t-shirts", "shoes", "glasses", "jackets", "suits", "bags"];
+const categories = ["Machine-a-coudre", "Pièce-machine-a-coudre", "Pièces-Électroniques"];
 
 const CreateProductForm = () => {
     const [newProduct, setNewProduct] = useState({

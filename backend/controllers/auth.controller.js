@@ -1,6 +1,6 @@
+import redis from "../lib/redis.js";
 import User from "../models/user.model.js";
 import jwt from "jsonwebtoken"; //Allows you to create and verify tokens
-import redis from "../lib/redis.js";
 //Signup Controller
 
 const generateToken = (userId) => {
@@ -39,14 +39,14 @@ const setCookies = (res, accessToken, refreshToken) => {
   res.cookie("accessToken", accessToken, {
     //accessToken = Key name =what u will see
     httpOnly: true, //Prevents the cookie from being accessed by client-side scripts ==XSS
-    secure: true, // In the production environment, the cookie will only be sent over HTTPS
+    secure: process.env.NODE_ENV === "production", // In the production environment, the cookie will only be sent over HTTPS
     sameSite: "strict", //Prevents the cookie from being sent to the server with cross-site requests Forgery ==CRSF
     maxAge: 15 * 60 * 1000, //Expires in 15 minutes
   });
   res.cookie("refreshToken", refreshToken, {
     httpOnly: true,
-    secure: true,
-    sameSite: "none",
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
     maxAge: 7 * 24 * 60 * 60 * 1000, //Expires in 7 days
   });
 };
@@ -154,7 +154,7 @@ export const refreshToken = async (req, res) => {
     res.cookie("accessToken", accessToken, {
       //accessToken = Key name =what u will see
       httpOnly: true, //Prevents the cookie from being accessed by client-side scripts ==XSS
-      secure: true, // In the production environment, the cookie will only be sent over HTTPS
+      secure: process.env.NODE_ENV === "production", // In the production environment, the cookie will only be sent over HTTPS
       sameSite: "strict", //Prevents the cookie from being sent to the server with cross-site requests Forgery ==CRSF
       maxAge: 15 * 60 * 1000, //Expires in 15 minutes
     });
@@ -168,7 +168,6 @@ export const refreshToken = async (req, res) => {
 
 export const getProfile = async (req, res) => {
   try {
-    console.log("req.user From auth controller \n", req.user);
     res.json(req.user); //req.user = user;
   } catch (error) {
     res.status(500).json({ message: error.message });

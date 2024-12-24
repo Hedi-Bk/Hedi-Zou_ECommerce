@@ -1,0 +1,15 @@
+
+    //BACKEND
+            // bscriptjs => To Hash The Password
+            //Cloudinary => To Upload Image
+            //cookie-parser => To Get Cookies from the Browser /Request
+            //dotenv => To Get Environment Variables from .env file (to be able to read it )
+            //exptess => To Create a Server
+            //ioredis => To Store Tokens in Redis (connect to upstash redis)
+            //jsonwebtoken => To Create and Verify Tokens (authentication and authorization of users)
+            //mongoose => To Connect to the MongoDB Database and interact with it
+            //stripe => To Handle Payments
+    //FRONTEND
+            //vite => To Create a Web Application ()
+            //react => To Create the Frontend
+            //react-router-dom => To Create the Routing of the Frontend
